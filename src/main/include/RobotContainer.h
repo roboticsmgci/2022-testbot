@@ -28,7 +28,7 @@ class RobotContainer {
     private:
 
         frc::Joystick m_stick1{0};
-        frc::Joystick m_stick2{1};
+        // frc::Joystick m_stick2{1};
 
         Drivetrain m_drivetrain;
         // Propeller m_propeller;

@@ -20,59 +20,36 @@ RobotContainer::RobotContainer() {
             [this] {
                 return (
                     (
-                        // tank
-                        (
-                            m_stick2.GetY()
-                                * (int)!(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
-                            + (m_stick1.GetY() + m_stick2.GetY()) / 2
-                                * (int)(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
-                        ) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)
-                        // tank
-                        +
-                        // arcade
-                        (m_stick2.GetY()
+                        (m_stick1.GetY()
                             * (
-                                1 - std::abs(
-                                    m_stick2.GetZ()
-                                        * (int)!m_stick2.GetRawButton(1)
+                                1 - 0.75 * std::abs(
+                                    m_stick1.GetZ()
+                                        * (int)!m_stick1.GetRawButton(1)
                                 )
                             )
-                        + m_stick2.GetZ()
+                        + m_stick1.GetZ()
                             * 0.75
-                            * (int)!m_stick2.GetRawButton(1)
-                        
-                        ) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
-                        // arcade
-                    ) * ((-m_stick2.GetThrottle() + 2) / 3)
+                            * (int)!m_stick1.GetRawButton(1)
+                        )
+                    ) * ((-m_stick1.GetThrottle() + 2) / 3)
                 );
             },
             [this] {
                 return (
                     (
-                        // tank
                         (
                             m_stick1.GetY()
-                                * (int)!(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
-                            + (m_stick1.GetY() + m_stick2.GetY()) / 2
-                                * (int)(m_stick2.GetRawButton(1) || m_stick2.GetRawButton(1))
-                        ) * (int)!(bool)round((-m_stick1.GetThrottle() + 1) / 2)
-                        // tank
-                        + 
-                        // arcade
-                        (
-                            m_stick2.GetY()
                                 * (
-                                    1 - std::abs(
-                                        m_stick2.GetZ()
-                                            * (int)!m_stick2.GetRawButton(1)
+                                    1 - 0.75 * std::abs(
+                                        m_stick1.GetZ()
+                                            * (int)!m_stick1.GetRawButton(1)
                                     )
                                 )
-                            - m_stick2.GetZ()
+                            - m_stick1.GetZ()
                                 * 0.75
-                                * (int)!m_stick2.GetRawButton(1)
-                        ) * (int)round((-m_stick1.GetThrottle() + 1) / 2)
-                        // arcade
-                    ) * ((-m_stick2.GetThrottle() + 2) / 3)
+                                * (int)!m_stick1.GetRawButton(1)
+                        )
+                    ) * ((-m_stick1.GetThrottle() + 2) / 3)
                 );
             },
             m_drivetrain
